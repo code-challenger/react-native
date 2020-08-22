@@ -1,0 +1,121 @@
+# Changelog
+- 2.1.8
+  - Fixed issue #263
+- 2.1.7
+  - Fixed TS def for conjunctionOptions (#247)
+- 2.1.6
+  - Temporary disable AntDesign 4.5.0+ because of "Invalid hook call" problem
+- 2.1.4
+  - Fixed issue #249 with importing rules with group fields from JsonLogic format
+- 2.1.3
+  - Fixed issue #255 with reordering
+- 2.1.2
+  - Added config `maxNumberOfRules`
+  - Bugfix: respect `maxNesting` and `canLeaveEmptyGroup` settings during drag-n-drop
+  - Enabled ESLint for examples with TS
+- 2.1.1
+  - Fixed export of `not_like` op to JsonLogic
+- 2.1.0
+  - Added displaying of rule validation errors, see `showErrorMessage` in config.settings
+  - Added `QbUtils.isValidTree()`
+  - `validateValue` moved from widget settings to field's `fieldSettings`
+  - Added ESLint (unused vars & props are off for now)
+- 2.0.11
+  - Added `starts_with`, `ends_with` operators for text type
+- 2.0.10
+  - Fixed bug with missing `funcs` in config
+- 2.0.9
+  - Fixed issues #215, #214, #208
+  - Fixed `validateValue`
+  - Simpler sandbox demo
+- 2.0.8
+  - Fixed issue #207
+- 2.0.7
+  - Added `canShortMongoQuery` to `config.settings`
+- 2.0.6
+  - Fixed issue #176
+- 2.0.5
+  - Fixed TS types. Updated sandbox to TS
+- 2.0.4
+  - Fixed import
+- 2.0.2
+  - Fix for TS
+- 2.0.1
+  - Fixed issues #187, #194, #182
+- 2.0.0
+  - Added `renderConjs`, `renderButton`, `renderButtonGroup`, `renderProvider`, `renderValueSources`, `renderConfirm`
+  - Removed coupling with AntDesign. Now it should be possible to use another UI framework.
+  - Added vanilla widgets. Added switcher between `antd` and `vanilla` in demo.
+- 1.3.7
+  - Fixed [issue](https://github.com/ukrbublik/react-awesome-query-builder/issues/168) with dot in field name
+- 1.3.6
+  - Added config options to disable inputs: `immutableFieldsMode`, `immutableOpsMode`, `immutableValuesMode` 
+- 1.3.5
+  - Issue #158
+- 1.3.3
+  - Bugfix
+- 1.3.2
+  - Bugfix
+- 1.3.1
+  - Added `FieldTreeSelect`
+- 1.3.0
+  - Added support of `!group`
+- 1.2.0
+  - Added `treeselect` and `treemultiselect` types
+  - Changed format of `listValues` from `{<value>: <title>}` to `[{value, title}]` (old is supported). 
+    Tree select also use `listValues`, format is compatible with simple select - `[{value, title, parent}]`
+- 1.1.3
+  - Fixed console warnings
+  - Fixed dev hot reload: now state is preserving
+  - Added render hoooks to `config.settings`: `renderBeforeWidget`, `renderAfterWidget`, `renderBeforeActions`, `renderAfterActions`
+- 1.1.2
+  - Added import from [JsonLogic](http://jsonlogic.com)
+- 1.1.1
+  - Optimized `$eq` and `$and` in MongoDb query export
+  - Fixed error if query value is empty
+  - Added API in readme
+- 1.1.0
+  - Added export to [JsonLogic](http://jsonlogic.com)
+- 1.0.12
+  - Added `sqlFormatFunc`, `mongoFormatFunc`, `renderBrackets`, `renderSeps` (for func), `funcs` (for field)
+- 1.0.11
+  - Added css-class `qb-lite` for query builder (see readme if you wanna use it)
+- 1.0.10
+  - Fix when using cascader for func selection
+- 1.0.9
+  - Allow group of functions (like with fields - `type == '!struct'` and `subfields`)
+- 1.0.8
+  - Added support for your custom functions as value source (args can be values/fields/funcs), see new section `funcs` in `config`
+  - Improved Mongo format: now can compare with field & use funcs with help of `$expr`
+  - (breaking) `mongoFormatOp` - inserted arg `useExpr` at 4th position
+  - Added `hideForSelect`, `hideForCompare` for field config
+- 1.0.7
+  - Fixed Babel
+- 1.0.6
+  - Added TypeScript support (`examples` uses TS, `sandbox` uses JS)
+  - Updated Babel, Webpack
+  - For `field` widget slightly changed format of `formatValue()` and `sqlFormatValue()` functions - argument `rightFieldDef` is now last one
+  - Added `defaultValue` in field config
+  - All `fieldSettings` will be now passed to widget props
+  - `listValues` and `allowCustomValues` moved inside `fieldSettings`
+- 1.0.4
+  - Added `QbUtils.sqlFormat()` (issue #29)
+  - Added `like` and `not_like` operators
+  - Added 2 params `string op, Object opDef` to end of `formatValue()`, `mongoFormatValue()`
+- 1.0.3
+  - Completely removed auto-loading of antd styles (issue #50)
+- 1.0.2
+  - Fixed bug with running examples app via react-scripts
+- 1.0.1
+  - Fixed bug with importing React
+- 1.0.0
+  - Don't include AntDesign styles automatically (issues #50, #93)
+  - added: `allowCustomValues` (issue #88)
+  - change: removed `renderFieldAndOpAsDropdown`, replaced by `renderField` (issue #109)
+  - added `renderOperator` (issue #89)
+  - change: query value now can be exported to JSON (instead of `Immutable.Map`), and loaded with `loadTree`  (old format is supported) (issue #61)
+  - added: `canRegroup`
+  - rename: `readonlyMode` -> `immutableGroupsMode`
+  - rename: `get_children` -> `renderBuilder`
+  - removed: unused `<Preview />` component and `.query-preview` class
+  - optimized renders & dragging
